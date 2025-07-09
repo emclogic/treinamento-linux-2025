@@ -68,7 +68,7 @@ while True:
     CPU = subprocess.check_output(cmd, shell=True).decode("utf-8")
     cmd = 'free -m | awk \'NR==2{printf "Mem: %s/%s MB  %.2f%%\\n", $3,$2,$3*100/$2 }\''
     MemUsage = subprocess.check_output(cmd, shell=True).decode("utf-8")
-    cmd = 'df -h | awk '$NF=="/"{printf "Disk: %s/%s used  (%s)\n", $3,$2,$5}''
+    cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %s/%s used  (%s)\\n\", $3,$2,$5}'"
     Disk = subprocess.check_output(cmd, shell=True).decode("utf-8")
 
     # Write four lines of text.
